@@ -45,7 +45,7 @@ function addToDo(toDo) {
 
 	const newToDoText = document.createElement('input');
 	newToDoText.type = 'text';
-	newToDoText.placeholder = 'Create a new todo...';
+	newToDoText.placeholder = 'Edit this to do...';
 	newToDoText.value = toDo.text;
 	newToDoText.oldValue = toDo.text;
 	newToDoText.onkeyup = focusOnNewToDo;
@@ -125,16 +125,10 @@ document.getElementById('icon').addEventListener('click', (event) => {
 	document.getElementById('new_to_do').focus();
 });
 
-document.getElementById('new_to_do_check_box').addEventListener('click', (event) => {
-	document.getElementById('new_to_do').focus();
-});
-
 document.getElementById('new_to_do').addEventListener('keyup', (event) => {
 	if (event.key == 'Enter' && event.target.value.trim() != '') {
-		const checkBox = document.getElementById('new_to_do_box').firstElementChild;
-
 		toDos.push({
-			complete: checkBox.checked,
+			complete: false,
 			text: event.target.value.trim()
 		});
 
@@ -144,9 +138,6 @@ document.getElementById('new_to_do').addEventListener('keyup', (event) => {
 
 		// clean text
 		event.target.value = '';
-
-		// uncheck
-		checkBox.checked = false;
 
 		updateLeftItems();
 	}

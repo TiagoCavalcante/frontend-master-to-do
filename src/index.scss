@@ -88,6 +88,10 @@ input[type=checkbox] {
 	}
 }
 
+#new_to_do_box input[type=text] {
+	width: 100%;
+}
+
 .to_do {
 	background-color: hsl(235, 21%, 11%);
 	padding: 7px;
@@ -229,11 +233,11 @@ body.light {
 		background-color: hsl(0, 0%, 98%);
 	}
 	
-	ul .to_do {
+	ul .to_do, #features {
 		background-color: transparent;
 	}
 
-	ul, #features, .what_show {
+	ul, .what_show {
 		background-color: hsl(0, 0%, 98%);
 	}
 
@@ -288,8 +292,12 @@ body.light {
 	}
 }
 
-@media(hover: none) {
+@media (hover: none) and (pointer: coarse) {
 	input[type=text] + span {
 		visibility: visible;
+	}
+
+	input[type=checkbox] {
+		border-color: hsl(220, 98%, 61%);
 	}
 }
