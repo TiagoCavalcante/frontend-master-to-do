@@ -20,4 +20,4 @@ Do every time:
 To run it you need to execute the server on the `docs` folder.
 
 ## see working
-![to do app working gif](https://user-images.githubusercontent.com/62714153/103438838-5ee52880-4c16-11eb-91f5-104b82672d93.gif)
+![to do app working gif](https://user-images.githubusercontent.com/62714153/103443083-70d8c280-4c3a-11eb-9843-b73fc9138563.gif)
