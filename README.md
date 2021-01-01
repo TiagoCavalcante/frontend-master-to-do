@@ -16,7 +16,7 @@ Do one time:
 Do every time:
 * execute `./build.sh`
 
-## ru
+## run
 To run it you need to execute the server on the `docs` folder.
 
 ## see working
