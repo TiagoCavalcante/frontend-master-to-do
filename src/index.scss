@@ -1,0 +1,295 @@
+@font-face {
+	font-family: 'JosefinSans';
+	src: url('assets/JosefinSans.woff');
+}
+
+body {
+	background-image: url('assets/bg-desktop-dark.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-color: hsl(235, 21%, 11%);
+	user-select: none;
+
+	&::after {
+		// hidden images
+		position:absolute;
+		width:0;
+		height:0;
+		overflow:hidden;
+		z-index:-1;
+		// preload images
+		content: url('assets/icon-sun.svg') url('assets/bg-desktop-light.jpg');
+	}
+}
+
+body, input {
+	font-family: 'JosefinSans';
+	font-weight: 700;
+	font-size: 22px;
+}
+
+input[type=text] {
+	color: white;
+	pointer-events: all;
+	background-color: hsl(235, 21%, 11%);
+	border: 0;
+	outline: none;
+	caret-color: hsl(220, 98%, 61%);
+	width: 86%;
+	font-size: 22px;
+	vertical-align: middle;
+
+	&::placeholder {
+		color: gray;
+	}
+
+	& + span {
+		margin-left: 6px;
+		vertical-align: middle;
+		font-weight: 100;
+		color: gray;
+		visibility: hidden;
+		cursor: pointer;
+	}
+}
+
+input[type=checkbox] {
+	border-radius: 50%;
+	appearance: none;
+	background-color: hsl(235, 21%, 11%);
+	width: 22px;
+	height: 22px;
+	box-sizing: border-box;
+	border: 2px solid gray;
+	cursor: pointer;
+	outline: none;
+	vertical-align: middle;
+
+	&:hover {
+		border-color: hsl(220, 98%, 61%);
+	}
+
+	&:checked {
+		background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+		border: 0;
+
+		& + input[type=text] {
+			text-decoration: line-through gray;
+			color: rgba(128, 128, 128, 50%);
+		}
+
+		&::after {
+			content: '✓';
+			margin: 0 30%;
+			vertical-align: middle;
+			font-size: 12px;
+			line-height: 22px;
+		}
+	}
+}
+
+.to_do {
+	background-color: hsl(235, 21%, 11%);
+	padding: 7px;
+	border-radius: 4px;
+}
+
+#box {
+	margin: 20px 0 0 0;
+	padding: 0;
+	border-radius: 4px;
+	background-color: hsl(235, 21%, 11%);
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+
+	& .to_do {
+		border-bottom: 1px solid gray;
+		background-color: transparent;
+		border-radius: 0;
+
+		&:hover span {
+			visibility: visible;
+		}
+	}
+}
+
+.what_show {
+	font-size: 14px;
+	color: gray;
+	text-align: center;
+
+	& :not(:last-child) {
+		margin-right: 5px;
+	}
+
+	& span {
+		cursor: pointer;
+
+		&.selected {
+			color: hsl(220, 98%, 61%);
+		}
+
+		&:not(.selected):hover {
+			color: white;
+		}
+	}
+}
+div.what_show {
+	margin: 20px 0 0 0;
+
+	padding: 7px;
+	border-radius: 4px;
+	background-color: hsl(235, 21%, 11%);
+}
+
+#features {
+	font-size: 14px;
+	padding: 7px 14px;
+	table-layout: fixed;
+	width: 100%;
+	box-sizing: border-box;
+
+	& td {
+		color: gray;
+
+		&#clear_completed {
+			text-align: right;
+			cursor: pointer;
+			
+			&:hover {
+				color: white;
+			}
+		}
+	}
+}
+
+#new_to_do_box, #box, div.what_show {
+	border: 0;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 30%);
+}
+
+.centered {
+	width: 95%;
+	max-width: 450px;
+	margin: 0 auto;
+
+	& .floated {
+		overflow: auto;
+
+		& h1 {
+			color: white;
+			margin-top: 35px;
+			font-size: 35px;
+			letter-spacing: 7px;
+
+			float: left;
+		}
+
+		& #icon {
+			margin-top: 35px;
+
+			float: right;
+
+			cursor: pointer;
+		}
+
+		&::after {
+			clear: both;
+		}
+	}
+}
+
+body.light {
+	background-image: url('assets/bg-desktop-light.jpg');
+	background-color: hsl(0, 0%, 98%);
+
+	& input[type=text] {
+		color: black;
+		background-color: hsl(0, 0%, 98%);
+	}
+
+	input[type=checkbox] {
+		background-color: hsl(0, 0%, 98%);
+	}
+
+	.to_do {
+		background-color: hsl(0, 0%, 98%);
+	}
+
+	ul:first-child {
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+	}
+
+	#box {
+		background-color: hsl(0, 0%, 98%);
+	}
+	
+	ul .to_do {
+		background-color: transparent;
+	}
+
+	ul, #features, .what_show {
+		background-color: hsl(0, 0%, 98%);
+	}
+
+	#features .what_show span:not(.selected):hover, #features #clear_completed:hover {
+		color: black;
+	}
+
+	.selected {
+		color: hsl(220, 98%, 61%);
+	}
+}
+
+.mobile {
+	display: none;
+}
+
+@media(max-width: 595px) {
+	input[type=text] {
+		width: 85%;
+	}
+}
+
+@media(max-width: 479px) {
+	input[type=text] {
+		width: 80%;
+	}
+
+	.mobile {
+		display: block;
+	}
+	.desktop-tablet {
+		display: none;
+	}
+}
+
+@media(max-width: 400px) {
+	body {
+		background-image: url('assets/bg-mobile-dark.jpg');
+
+		&::after {
+			content: url('assets/icon-sun.svg') url('assets/bg-mobile-light.jpg');
+		}
+	}
+	body.light {
+		background-image: url('assets/bg-mobile-light.jpg');
+	}	
+}
+
+@media(max-width: 330px) {
+	input[type=text] {
+		width: 75%;
+	}
+}
+
+@media(hover: none) {
+	input[type=text] + span {
+		visibility: visible;
+	}
+}
