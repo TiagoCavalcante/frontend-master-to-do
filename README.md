@@ -2,8 +2,8 @@
 A to do app made with HTML5, SCSS and JavaScript
 
 ## feaures
-* to dos are savend on local storage
-* light and dark mode
+* to dos are saved on local storage
+* light and dark modes
 * work on desktop, tablet and mobile
 * drag and drop to reorder list on destop
 
